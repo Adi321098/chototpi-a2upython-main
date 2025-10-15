@@ -7,7 +7,16 @@ import os, traceback, time, requests
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": ["https://connectpi.in"]}}, supports_credentials=True)
+
+CORS(app, resources={
+    r"/*": {
+        "origins": [
+            "https://connectpi.in",
+            "https://studio-complet2.vercel.app"
+        ]
+    }
+}, supports_credentials=True)
+
 # 🔐 Khởi tạo SDK Pi A2U
 pi = PiNetwork()
 pi.initialize(
